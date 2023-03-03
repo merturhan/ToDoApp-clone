@@ -15,6 +15,7 @@
 		EE764A6729B26DA7004E8F15 /* ToDoApp_clone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE764A6529B26DA7004E8F15 /* ToDoApp_clone.xcdatamodeld */; };
 		EE764A6F29B271F2004E8F15 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */; };
 		EE764A7129B2723E004E8F15 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A7029B2723E004E8F15 /* BackgroundView.swift */; };
+		EE764A7329B27CB7004E8F15 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A7229B27CB7004E8F15 /* NewTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		EE764A6629B26DA7004E8F15 /* ToDoApp_clone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp_clone.xcdatamodel; sourceTree = "<group>"; };
 		EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		EE764A7029B2723E004E8F15 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		EE764A7229B27CB7004E8F15 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */,
 				EE764A7029B2723E004E8F15 /* BackgroundView.swift */,
+				EE764A7229B27CB7004E8F15 /* NewTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE764A7129B2723E004E8F15 /* BackgroundView.swift in Sources */,
+				EE764A7329B27CB7004E8F15 /* NewTaskView.swift in Sources */,
 				EE764A6429B26DA7004E8F15 /* Persistence.swift in Sources */,
 				EE764A6729B26DA7004E8F15 /* ToDoApp_clone.xcdatamodeld in Sources */,
 				EE764A6F29B271F2004E8F15 /* EmptyStateView.swift in Sources */,

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EmptyStateView: View {
     
+    @State private var isNewTaskViewOn : Bool = false
+    
     var body: some View {
         
         NavigationView{
@@ -20,8 +22,9 @@ struct EmptyStateView: View {
                     Spacer()
                     HStack{
                             Spacer()
-                        Button {
-                            print("test")
+                        Button{
+                            //Go to NewTaskView()
+                            self.isNewTaskViewOn.toggle()
                         } label: {
                             ZStack{
                                 Circle()
@@ -35,6 +38,9 @@ struct EmptyStateView: View {
                             }.shadow(radius: 25)
                             
                         }
+                        .fullScreenCover(isPresented: self.$isNewTaskViewOn, content: {NewTaskView()})
+                         
+                                
 
                     }
                 }.padding()
@@ -50,3 +56,4 @@ struct EmptyStateView_Previews: PreviewProvider {
         EmptyStateView()
     }
 }
+
