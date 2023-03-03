@@ -13,6 +13,8 @@
 		EE764A6229B26DA7004E8F15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE764A6129B26DA7004E8F15 /* Preview Assets.xcassets */; };
 		EE764A6429B26DA7004E8F15 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A6329B26DA7004E8F15 /* Persistence.swift */; };
 		EE764A6729B26DA7004E8F15 /* ToDoApp_clone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE764A6529B26DA7004E8F15 /* ToDoApp_clone.xcdatamodeld */; };
+		EE764A6F29B271F2004E8F15 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */; };
+		EE764A7129B2723E004E8F15 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A7029B2723E004E8F15 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		EE764A6129B26DA7004E8F15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE764A6329B26DA7004E8F15 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		EE764A6629B26DA7004E8F15 /* ToDoApp_clone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp_clone.xcdatamodel; sourceTree = "<group>"; };
+		EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		EE764A7029B2723E004E8F15 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		EE764A5929B26DA6004E8F15 /* ToDoApp-clone */ = {
 			isa = PBXGroup;
 			children = (
+				EE764A6D29B26FE0004E8F15 /* View */,
 				EE764A5A29B26DA6004E8F15 /* ToDoApp_cloneApp.swift */,
 				EE764A5C29B26DA6004E8F15 /* ContentView.swift */,
 				EE764A5E29B26DA7004E8F15 /* Assets.xcassets */,
@@ -71,6 +76,15 @@
 				EE764A6129B26DA7004E8F15 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE764A6D29B26FE0004E8F15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */,
+				EE764A7029B2723E004E8F15 /* BackgroundView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE764A7129B2723E004E8F15 /* BackgroundView.swift in Sources */,
 				EE764A6429B26DA7004E8F15 /* Persistence.swift in Sources */,
 				EE764A6729B26DA7004E8F15 /* ToDoApp_clone.xcdatamodeld in Sources */,
+				EE764A6F29B271F2004E8F15 /* EmptyStateView.swift in Sources */,
 				EE764A5D29B26DA6004E8F15 /* ContentView.swift in Sources */,
 				EE764A5B29B26DA6004E8F15 /* ToDoApp_cloneApp.swift in Sources */,
 			);
