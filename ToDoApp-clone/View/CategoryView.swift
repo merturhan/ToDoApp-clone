@@ -21,7 +21,7 @@ struct CategoryView: View {
             Spacer()
         }.frame(width: 120)
             .padding(.leading)
-            .border(.black)
+            //.border(.black)
                 
     }
 }

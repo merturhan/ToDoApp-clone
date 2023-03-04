@@ -14,8 +14,11 @@ struct NewTaskView: View {
     @State private var text : String = ""
     @State private var taskDate = Date()
     @State private var note : String = ""
+    @State private var selectedCategory : String = "Select category"
     
     @EnvironmentObject var myCategories : CategoryViewModel
+    
+    @State private var isToDoListView : Bool = false
     
     private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -52,15 +55,24 @@ struct NewTaskView: View {
                             
                         }.padding(.trailing, 120)
                             .colorInvert().colorMultiply(.blue)
-                    }
+                    }.padding(.bottom)
             
                     //Add Note Part
                     HStack{
                         Image(systemName: "square.and.pencil").padding(.leading)
                         TextField("add note", text: $note).padding()
                     }.padding(.trailing)
-                        .padding(.top)
                         .foregroundColor(.secondary)
+                    
+                    //Selected Category Part
+                    HStack{
+                        Image(systemName: "tag").padding(.leading)
+                            .padding(.trailing)
+                        Text("\(self.selectedCategory)")
+                        Spacer()
+                    }.padding(.trailing)
+                        .foregroundColor(.secondary)
+                        .padding(.bottom)
                     
                     //Category Part
                     LazyVGrid(columns: threeColumnGrid){
@@ -68,8 +80,27 @@ struct NewTaskView: View {
                             viewItem in
                             CategoryView(categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName)
                         }
-                    }
+                    }.padding(.bottom,30)
                    
+                    
+                    Button {
+                        //Action
+                        for i in 0...13{
+                            myCategories.categories[i].increaseCounter()
+                        }
+                        isToDoListView.toggle()
+                        
+                    } label: {
+                        
+                        Text("Add")
+                            .frame(width: UIScreen.main.bounds.width - 30, height: 40)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    .fullScreenCover(isPresented: self.$isToDoListView, content: {
+                        ToDoList()
+                    })
 
                     
                     

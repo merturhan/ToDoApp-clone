@@ -13,52 +13,52 @@ struct ToDoList: View {
     @State var isToDoList : Bool = false
     @State private var twoColumns = [GridItem(.flexible()), GridItem(.flexible())]
     
+    
+    @State var isNewTaskView : Bool = false
+ 
     var body: some View {
         
-        
-        
-        ZStack{
-            Color.secondary.opacity(0.1)
-                .ignoresSafeArea()
+        NavigationView{
             
             ZStack{
+                Color.secondary.opacity(0.1)
+                    .ignoresSafeArea()
+                
                 ScrollView{
-                                
-                                LazyVGrid(columns: twoColumns){
-                                    
-                                    ForEach(myCategories.categories, id: \.id){
-                                        viewItem in
-                                        
-                                            ToDoGridView(categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName, counter: viewItem.counter, allCounter: CategoryModel.allCounter)
-                                        
-                                    }.padding(.leading)
-                                        .padding(.trailing)
-                                    
-                                }
-                }.onChange(of: CategoryModel.allCounter){ id in
-                    print("değişti")
+                    
+                    LazyVGrid(columns: twoColumns){
+                        
+                        ForEach(myCategories.categories, id: \.id){
+                            viewItem in
+                            
+                            if(viewItem.counter != 0){
+                                ToDoGridView(categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName, counter: viewItem.counter)
+                            }
+                            
+                        }.padding(.leading)
+                            .padding(.trailing)
+                        
+                    }
+                }//ScrollView
+                .onAppear(){
+                    
                 }
+                
+                //Button
                 VStack{
                     Spacer()
                     HStack{
                         Spacer()
                         Button{
-                            //Go to NewTaskView()
-                            //self.isNewTaskViewOn.toggle()
-                            for i in 0...13{
-                                print(myCategories.categories[i].counter)
-                                //print(CategoryModel.allCounter)
-                            }
-                            for i in 0...13{
-                                myCategories.categories[i].increaseCounter()
-                            }
+                            self.isToDoList.toggle()
+                            
                             
                         } label: {
                             ZStack{
                                 Circle()
                                     .frame(width: 60, height: 60, alignment: .center)
                                     .foregroundColor(.indigo)
-                                    
+                                
                                 Text("+")
                                     .foregroundColor(.white)
                                     .frame(alignment: .center)
@@ -66,20 +66,27 @@ struct ToDoList: View {
                             }.shadow(radius: 25)
                             
                         }
-                    }
-                }.padding()
-            }
-            
+                        .fullScreenCover(isPresented: self.$isToDoList) {
+                            NewTaskView().environmentObject(CategoryViewModel())
+                        }
+                        
+                    }.padding()
+                    
+                }//Z Stack
+                
+                
+                .navigationTitle("ToDo")
+            }//NavigationView
             
             
             
         }
-        
     }
-}
-
-struct ToDoList_Previews: PreviewProvider {
-    static var previews: some View {
-        ToDoList().environmentObject(CategoryViewModel())
+    
+    struct ToDoList_Previews: PreviewProvider {
+        static var previews: some View {
+            ToDoList().environmentObject(CategoryViewModel())
+        }
     }
+    
 }
