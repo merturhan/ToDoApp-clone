@@ -16,7 +16,8 @@ struct ToDoApp_cloneApp: App {
             /*ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
              */
-            EmptyStateView()
+            //EmptyStateView()
+            ToDoList().environmentObject(CategoryViewModel())
             
         }
     }
