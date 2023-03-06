@@ -25,4 +25,8 @@ class CategoryViewModel :  ObservableObject{
         CategoryModel(categoryName: "Travel"),
         CategoryModel(categoryName: "Work")]
     
+    public func getAllCategories() -> [CategoryModel]{
+        return self.categories
+    }
+    
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE4D531929B402F000D5031F /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D531829B402F000D5031F /* TaskModel.swift */; };
+		EE4D531B29B4030E00D5031F /* CategoryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D531A29B4030E00D5031F /* CategoryViewViewModel.swift */; };
 		EE69A8FA29B365CC0046AA99 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE69A8F929B365CC0046AA99 /* CategoryView.swift */; };
 		EE69A8FC29B36EE90046AA99 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE69A8FB29B36EE90046AA99 /* CategoryModel.swift */; };
 		EE69A8FE29B370680046AA99 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE69A8FD29B370680046AA99 /* CategoryViewModel.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE4D531829B402F000D5031F /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		EE4D531A29B4030E00D5031F /* CategoryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewViewModel.swift; sourceTree = "<group>"; };
 		EE69A8F929B365CC0046AA99 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		EE69A8FB29B36EE90046AA99 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		EE69A8FD29B370680046AA99 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				EE69A8FB29B36EE90046AA99 /* CategoryModel.swift */,
+				EE4D531829B402F000D5031F /* TaskModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -64,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				EE69A8FD29B370680046AA99 /* CategoryViewModel.swift */,
+				EE4D531A29B4030E00D5031F /* CategoryViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,9 +204,11 @@
 				EE69A90229B3884F0046AA99 /* ToDoGridView.swift in Sources */,
 				EE764A6F29B271F2004E8F15 /* EmptyStateView.swift in Sources */,
 				EE69A8FE29B370680046AA99 /* CategoryViewModel.swift in Sources */,
+				EE4D531B29B4030E00D5031F /* CategoryViewViewModel.swift in Sources */,
 				EE69A90429B389A00046AA99 /* ToDoList.swift in Sources */,
 				EE764A5D29B26DA6004E8F15 /* ContentView.swift in Sources */,
 				EE69A8FA29B365CC0046AA99 /* CategoryView.swift in Sources */,
+				EE4D531929B402F000D5031F /* TaskModel.swift in Sources */,
 				EE69A8FC29B36EE90046AA99 /* CategoryModel.swift in Sources */,
 				EE764A5B29B26DA6004E8F15 /* ToDoApp_cloneApp.swift in Sources */,
 			);

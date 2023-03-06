@@ -11,6 +11,8 @@ struct CategoryView: View {
     
     var categoryName : String
     var categoryPicName : String
+    @Binding var selectedCategory : String
+    
     
     var body: some View {
         
@@ -22,12 +24,16 @@ struct CategoryView: View {
         }.frame(width: 120)
             .padding(.leading)
             //.border(.black)
+            .onTapGesture {
+                print("ya ya")
+                selectedCategory = categoryName
+            }
                 
     }
 }
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(categoryName: "Cooking", categoryPicName: "task_cooking")
+        CategoryView(categoryName: "Cooking", categoryPicName: "task_cooking", selectedCategory: .constant("Select category"))
     }
 }

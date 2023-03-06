@@ -14,7 +14,9 @@ struct NewTaskView: View {
     @State private var text : String = ""
     @State private var taskDate = Date()
     @State private var note : String = ""
-    @State private var selectedCategory : String = "Select category"
+    @State var selectedCategory : String = "Select category"
+
+
     
     @EnvironmentObject var myCategories : CategoryViewModel
     
@@ -68,7 +70,7 @@ struct NewTaskView: View {
                     HStack{
                         Image(systemName: "tag").padding(.leading)
                             .padding(.trailing)
-                        Text("\(self.selectedCategory)")
+                        Text("\(selectedCategory)")
                         Spacer()
                     }.padding(.trailing)
                         .foregroundColor(.secondary)
@@ -78,17 +80,22 @@ struct NewTaskView: View {
                     LazyVGrid(columns: threeColumnGrid){
                         ForEach(myCategories.categories, id: \.id){
                             viewItem in
-                            CategoryView(categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName)
+                            CategoryView(categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName, selectedCategory: $selectedCategory)
+                            
                         }
                     }.padding(.bottom,30)
                    
                     
                     Button {
                         //Action
+                        
                         for i in 0...13{
                             myCategories.categories[i].increaseCounter()
+                            print(myCategories.categories[i].counter)
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                         isToDoListView.toggle()
+                        
                         
                     } label: {
                         
@@ -97,10 +104,10 @@ struct NewTaskView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(8)
-                    }
-                    .fullScreenCover(isPresented: self.$isToDoListView, content: {
+                    }.fullScreenCover(isPresented: self.$isToDoListView, content: {
                         ToDoList()
                     })
+                   
 
                     
                     
@@ -122,7 +129,6 @@ struct NewTaskView: View {
                 }
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitleDisplayMode(.inline)
-                
             
         }
         
