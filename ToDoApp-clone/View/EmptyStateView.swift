@@ -38,7 +38,7 @@ struct EmptyStateView: View {
                             }.shadow(radius: 25)
                             
                         }
-                        .fullScreenCover(isPresented: self.$isNewTaskViewOn, content: {NewTaskView().environmentObject(CategoryViewModel())})
+                        
                          
                                 
 

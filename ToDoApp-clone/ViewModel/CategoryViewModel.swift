@@ -10,23 +10,30 @@ import Foundation
 class CategoryViewModel :  ObservableObject{
     
     @Published var categories : [CategoryModel] = [
-        CategoryModel(categoryName: "All"),
-        CategoryModel(categoryName: "Cooking"),
-        CategoryModel(categoryName: "Finance"),
-        CategoryModel(categoryName: "Gift"),
-        CategoryModel(categoryName: "Health"),
-        CategoryModel(categoryName: "Home"),
-        CategoryModel(categoryName: "Ideas"),
-        CategoryModel(categoryName: "Music"),
-        CategoryModel(categoryName: "Others"),
-        CategoryModel(categoryName: "Payment"),
-        CategoryModel(categoryName: "Shopping"),
-        CategoryModel(categoryName: "Study"),
-        CategoryModel(categoryName: "Travel"),
-        CategoryModel(categoryName: "Work")]
+        CategoryModel(categoryName: "All", categoryPicName: "task_all"),
+        CategoryModel(categoryName: "Cooking", categoryPicName: "task_cooking"),
+        CategoryModel(categoryName: "Finance", categoryPicName: "task_finance"),
+        CategoryModel(categoryName: "Gift", categoryPicName: "task_gift"),
+        CategoryModel(categoryName: "Health", categoryPicName: "task_health"),
+        CategoryModel(categoryName: "Home", categoryPicName: "task_home"),
+        CategoryModel(categoryName: "Ideas", categoryPicName: "task_ideas"),
+        CategoryModel(categoryName: "Music", categoryPicName: "task_music"),
+        CategoryModel(categoryName: "Others", categoryPicName: "task_others"),
+        CategoryModel(categoryName: "Payment", categoryPicName: "task_payment"),
+        CategoryModel(categoryName: "Shopping", categoryPicName: "task_shopping"),
+        CategoryModel(categoryName: "Study", categoryPicName: "task_study"),
+        CategoryModel(categoryName: "Travel", categoryPicName: "task_travel"),
+        CategoryModel(categoryName: "Work", categoryPicName: "task_work")]
     
-    public func getAllCategories() -> [CategoryModel]{
-        return self.categories
+    init(){
+                        
+    }
+    
+    func increaseAll(){
+        for i in 0...13 {
+            categories[i].counter += 1
+            //print(categories[i].counter)
+        }
     }
     
 }

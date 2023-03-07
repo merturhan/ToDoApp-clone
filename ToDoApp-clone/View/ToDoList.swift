@@ -9,15 +9,10 @@ import SwiftUI
 
 struct ToDoList: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    static let shared = ToDoList()
-    
-    @EnvironmentObject var myCategories : CategoryViewModel
-    //@State var isToDoList : Bool = false
-    @State private var twoColumns = [GridItem(.flexible()), GridItem(.flexible())]
-    
+    @ObservedObject var myCategories : CategoryViewModel
     
     @State var isNewTaskView : Bool = false
+    @State private var twoColumns = [GridItem(.flexible()), GridItem(.flexible())]
  
     var body: some View {
         
@@ -43,9 +38,7 @@ struct ToDoList: View {
                         
                     }
                 }//ScrollView
-                .onAppear(){
-                    
-                }
+                
                 
                 //Button
                 VStack{
@@ -54,7 +47,6 @@ struct ToDoList: View {
                         Spacer()
                         Button{
                             self.isNewTaskView.toggle()
-                            presentationMode.wrappedValue.dismiss()
                             
                         } label: {
                             ZStack{
@@ -70,7 +62,7 @@ struct ToDoList: View {
                             
                         }
                         .fullScreenCover(isPresented: self.$isNewTaskView) {
-                            NewTaskView()
+                            NewTaskView(isNewTaskView: $isNewTaskView, myCategories: myCategories)
                         }
                         
                     }.padding()
@@ -88,7 +80,7 @@ struct ToDoList: View {
     
     struct ToDoList_Previews: PreviewProvider {
         static var previews: some View {
-            ToDoList().environmentObject(CategoryViewModel())
+            ToDoList(myCategories: CategoryViewModel())
         }
     }
     

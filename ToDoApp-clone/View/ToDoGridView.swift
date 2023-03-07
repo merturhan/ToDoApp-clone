@@ -13,8 +13,6 @@ struct ToDoGridView: View {
     var categoryPicName : String
     var counter : Int
     
-    
-    
     var body: some View {
         
         
@@ -38,7 +36,7 @@ struct ToDoGridView: View {
     
     struct ToDoGridView_Previews: PreviewProvider {
         static var previews: some View {
-            ToDoGridView(categoryName: "Cooking", categoryPicName: "task_cooking", counter: 50)
+            ToDoGridView(categoryName: ("Cooking"), categoryPicName: ("task_cooking"), counter: (50))
         }
     }
 }

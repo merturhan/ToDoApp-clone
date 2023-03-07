@@ -9,20 +9,16 @@ import SwiftUI
 
 struct NewTaskView: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @State private var text : String = ""
-    @State private var taskDate = Date()
-    @State private var note : String = ""
+    @State var text : String = ""
+    @State var taskDate = Date()
+    @State var note : String = ""
     @State var selectedCategory : String = "Select category"
+    
+    @Binding var isNewTaskView : Bool
 
-
+    @ObservedObject var myCategories : CategoryViewModel
     
-    @EnvironmentObject var myCategories : CategoryViewModel
-    
-    @State private var isToDoListView : Bool = false
-    
-    private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         
@@ -88,13 +84,9 @@ struct NewTaskView: View {
                     
                     Button {
                         //Action
-                        
-                        for i in 0...13{
-                            myCategories.categories[i].increaseCounter()
-                            print(myCategories.categories[i].counter)
-                        }
-                        self.presentationMode.wrappedValue.dismiss()
-                        isToDoListView.toggle()
+                        isNewTaskView.toggle()
+                        myCategories.increaseAll()
+                        //rollback
                         
                         
                     } label: {
@@ -104,10 +96,11 @@ struct NewTaskView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(8)
-                    }.fullScreenCover(isPresented: self.$isToDoListView, content: {
-                        ToDoList()
-                    })
-                   
+                    }
+//                    .fullScreenCover(isPresented: self.$isToDoListView, content: {
+//                        ToDoList()
+//                    })
+//
 
                     
                     
@@ -120,7 +113,7 @@ struct NewTaskView: View {
                 .navigationTitle("New Task")
                 .toolbar{
                     Button {
-                        self.presentationMode.wrappedValue.dismiss()
+                        
                         
                     } label: {
                         Image(systemName: "xmark")
@@ -137,6 +130,6 @@ struct NewTaskView: View {
 
 struct NewTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTaskView().environmentObject(CategoryViewModel())
+        NewTaskView(isNewTaskView: .constant(false), myCategories: CategoryViewModel())
     }
 }

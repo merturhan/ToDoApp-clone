@@ -10,32 +10,29 @@ import SwiftUI
 @main
 struct ToDoApp_cloneApp: App {
     
-    @EnvironmentObject var myCategories : CategoryViewModel
+    @StateObject var myCategories = CategoryViewModel()
     
     var body: some Scene {
         
-        
         WindowGroup {
-            /*ContentView()
-             .environment(\.managedObjectContext, persistenceController.container.viewContext)
-             */
-            //EmptyStateView()
-            ToDoList().environmentObject(CategoryViewModel())
+            ToDoList(myCategories: myCategories)
         }
     }
-    
-
-
-//    func decider(data : CategoryViewModel) -> some View {
+}
 //
-//            for i in 0...13{
-//                if(data.categories[i].counter > 0){
-//                    return ToDoList().environmentObject(CategoryViewModel())
-//                    break
-//                }
-//            }
+//private func decider (myCategories : CategoryViewModel ) -> some View
+//{
 //
-//            return EmptyStateView()
-//        }
-    }
-
+//    var allCounter = 0
+//
+//    for i in 0...13{
+//        allCounter += myCategories.categories[i].counter
+//    }
+//
+//    if(allCounter > 0){
+//        return ToDoList(myCategories: myCategories)
+//    }
+//
+//    return EmptyStateView()
+//
+//}

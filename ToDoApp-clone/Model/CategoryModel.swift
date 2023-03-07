@@ -7,22 +7,12 @@
 
 import Foundation
 
-class CategoryModel : Identifiable, ObservableObject{
+struct CategoryModel : Identifiable{
     
-    var id : UUID
+    var id = UUID()
     var categoryName : String
-    var categoryPicName : String = ""
+    var categoryPicName : String
     var counter : Int = 0
-    static var allCounter : Int = 0
     
-    init(categoryName: String) {
-        self.id = UUID()
-        self.categoryName = categoryName
-        self.categoryPicName = "task_" + categoryName.lowercased()
-    }
-    
-    public func increaseCounter(){
-        self.counter += 1
-    }
     
 }
