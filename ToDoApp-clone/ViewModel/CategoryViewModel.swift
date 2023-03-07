@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CategoryViewModel :  ObservableObject{
     
@@ -25,8 +26,26 @@ class CategoryViewModel :  ObservableObject{
         CategoryModel(categoryName: "Travel", categoryPicName: "task_travel"),
         CategoryModel(categoryName: "Work", categoryPicName: "task_work")]
     
+    
     init(){
                         
+    }
+    
+    func addTaskToSelectedCategory(selectedCategoryIndex : Int, taskToAdd : TaskModel, categoryName : String){
+        
+        if(categoryName == "All"){
+            self.categories[selectedCategoryIndex].tasks?.append(taskToAdd)
+            self.categories[selectedCategoryIndex].counter += 1
+        }
+        else{
+            self.categories[0].tasks?.append(taskToAdd)
+            self.categories[0].counter += 1
+            self.categories[selectedCategoryIndex].tasks?.append(taskToAdd)
+            self.categories[selectedCategoryIndex].counter += 1
+        }
+        
+        
+        
     }
     
     func increaseAll(){
@@ -34,6 +53,31 @@ class CategoryViewModel :  ObservableObject{
             categories[i].counter += 1
             //print(categories[i].counter)
         }
+    }
+    
+    
+    @ViewBuilder
+    func decider (myCategories : CategoryViewModel , myTaskViewModel : TaskViewModel) -> some View
+    {
+        if(isToDoList(myCategories: myCategories)){
+            ToDoList(myCategories: myCategories, myTasks: myTaskViewModel)
+        }
+        //EmptyStateView()
+    }
+    
+    func isToDoList(myCategories : CategoryViewModel) -> Bool{
+        
+        var allCounter = 0
+        
+        for i in 0...13{
+            allCounter += myCategories.categories[i].counter
+        }
+        
+        if(allCounter > 0){
+            return true
+        }
+            
+        return true
     }
     
 }

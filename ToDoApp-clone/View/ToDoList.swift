@@ -10,6 +10,7 @@ import SwiftUI
 struct ToDoList: View {
     
     @ObservedObject var myCategories : CategoryViewModel
+    @ObservedObject var myTasks : TaskViewModel
     
     @State var isNewTaskView : Bool = false
     @State private var twoColumns = [GridItem(.flexible()), GridItem(.flexible())]
@@ -62,7 +63,7 @@ struct ToDoList: View {
                             
                         }
                         .fullScreenCover(isPresented: self.$isNewTaskView) {
-                            NewTaskView(isNewTaskView: $isNewTaskView, myCategories: myCategories)
+                            NewTaskView(isNewTaskView: $isNewTaskView, myCategories: myCategories, myTasks: TaskViewModel())
                         }
                         
                     }.padding()
@@ -80,7 +81,7 @@ struct ToDoList: View {
     
     struct ToDoList_Previews: PreviewProvider {
         static var previews: some View {
-            ToDoList(myCategories: CategoryViewModel())
+            ToDoList(myCategories: CategoryViewModel(), myTasks: TaskViewModel())
         }
     }
     

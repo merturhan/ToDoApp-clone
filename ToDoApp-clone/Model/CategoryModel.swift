@@ -13,6 +13,10 @@ struct CategoryModel : Identifiable{
     var categoryName : String
     var categoryPicName : String
     var counter : Int = 0
+    var tasks : [TaskModel]?
     
+    mutating func addTaskToCategory( task : TaskModel){
+        tasks?.append(task)
+    }
     
 }

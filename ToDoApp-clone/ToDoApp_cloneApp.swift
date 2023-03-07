@@ -11,28 +11,13 @@ import SwiftUI
 struct ToDoApp_cloneApp: App {
     
     @StateObject var myCategories = CategoryViewModel()
+    @StateObject var myTaskView = TaskViewModel()
     
     var body: some Scene {
         
         WindowGroup {
-            ToDoList(myCategories: myCategories)
+            myCategories.decider(myCategories: myCategories, myTaskViewModel: myTaskView)
         }
     }
 }
-//
-//private func decider (myCategories : CategoryViewModel ) -> some View
-//{
-//
-//    var allCounter = 0
-//
-//    for i in 0...13{
-//        allCounter += myCategories.categories[i].counter
-//    }
-//
-//    if(allCounter > 0){
-//        return ToDoList(myCategories: myCategories)
-//    }
-//
-//    return EmptyStateView()
-//
-//}
+

@@ -17,6 +17,7 @@ struct NewTaskView: View {
     @Binding var isNewTaskView : Bool
 
     @ObservedObject var myCategories : CategoryViewModel
+    @ObservedObject var myTasks : TaskViewModel
     
     var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -84,8 +85,11 @@ struct NewTaskView: View {
                     
                     Button {
                         //Action
+                        
+                        myTasks.addTaskToCategory(myCategories: myCategories, newTask: TaskModel(textFieldText: text, date: taskDate, note: note), selectedCategory: selectedCategory)
+                        
+                        
                         isNewTaskView.toggle()
-                        myCategories.increaseAll()
                         //rollback
                         
                         
@@ -130,6 +134,6 @@ struct NewTaskView: View {
 
 struct NewTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTaskView(isNewTaskView: .constant(false), myCategories: CategoryViewModel())
+        NewTaskView(isNewTaskView: .constant(false), myCategories: CategoryViewModel(), myTasks: TaskViewModel())
     }
 }
