@@ -119,4 +119,40 @@ class CategoryViewModel :  ObservableObject{
         return -1
     }
     
+    
+    func isFilled(myCategory : CategoryViewModel, taskText: String, categoryName : String) -> Bool{
+        
+        var indexOfCategory : Int = getIndex(myCategories: myCategory, catName: categoryName)
+        
+        for i in 0...myCategory.categories[indexOfCategory].tasks.count-1{
+            if (taskText == myCategory.categories[indexOfCategory].tasks[i].textFieldText){
+                
+                if(myCategory.categories[indexOfCategory].tasks[i].isTaskDone){
+                    return true
+                }
+                return false
+                
+            }
+        }
+        return false
+    }
+    
+    func toggleFilled(myCategory : CategoryViewModel, taskText: String, categoryName : String){
+        
+        var indexOfCategory : Int = getIndex(myCategories: myCategory, catName: categoryName)
+        
+        for i in 0...myCategory.categories[0].tasks.count-1{
+            if (taskText == myCategory.categories[0].tasks[i].textFieldText){
+                myCategory.categories[0].tasks[i].changeStatus()
+            }
+        }
+        
+        for i in 0...myCategory.categories[indexOfCategory].tasks.count-1{
+            if (taskText == myCategory.categories[indexOfCategory].tasks[i].textFieldText){
+                myCategory.categories[indexOfCategory].tasks[i].changeStatus()
+            }
+        }
+        
+    }
+    
 }

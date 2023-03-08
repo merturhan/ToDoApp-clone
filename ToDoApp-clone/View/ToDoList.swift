@@ -34,9 +34,9 @@ struct ToDoList: View {
                         ForEach(myCategories.categories, id: \.id){
                             viewItem in
                             
-//                            if(viewItem.counter != 0){
+                            if(viewItem.counter != 0){
                             ToDoGridView(myCategories: myCategories, myTasks: myTasks, isDetailViewOn: isDetailViewOn, categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName, counter: viewItem.counter)
-//                            }
+                            }
                             
                         }.padding(.leading)
                             .padding(.trailing)

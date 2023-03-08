@@ -14,5 +14,12 @@ struct TaskModel : Identifiable {
     var date : Date
     var note : String
     var isTaskDone = false
+    
+    mutating func changeStatus(){
+        isTaskDone.toggle()
+    }
+    
 }
+
+
 

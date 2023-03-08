@@ -18,6 +18,8 @@ struct TaskDetailView: View {
     var categoryPicName : String
     var taskCounter : Int
     
+    @State var index : Int = 0
+    
     var body: some View {
         
         
@@ -78,23 +80,45 @@ struct TaskDetailView: View {
                                     ScrollView{
                                         
                                         
-                                            ForEach (myCategories.categories[getIndex(myCategories: myCategories, catName: categoryName)].tasks, id: \.id){ listedTasks in
+                                        ForEach (myCategories.categories[getIndex(myCategories: myCategories, catName: categoryName)].tasks, id: \.id){ listedTasks in
                                                 Divider()
                                                 VStack{
                                                     HStack{
-                                                        Text(listedTasks.textFieldText).padding(.leading)
-                                                            .frame(height: 30)
-                                                            .font(.title3)
+                                                        
+                                                        if(myCategories.isFilled(myCategory: myCategories, taskText: listedTasks.textFieldText, categoryName: categoryName)){
+                                                            Text(listedTasks.textFieldText).padding(.leading)
+                                                                .frame(height: 30)
+                                                                .font(.title3)
+                                                                .strikethrough()
+                                                        }else{
+                                                            Text(listedTasks.textFieldText).padding(.leading)
+                                                                .frame(height: 30)
+                                                                .font(.title3)
+                                                        }
+                                                        
+                                                        
                                                         Spacer()
                                                         
                                                         Button {
+                                                            myCategories.toggleFilled(myCategory: myCategories, taskText: listedTasks.textFieldText, categoryName: categoryName)
                                                             
                                                         } label: {
-                                                            Image("checkbox").resizable()
-                                                                .frame(width: 30, height: 30, alignment: .center)
+                                                            
+                                                            if(myCategories.isFilled(myCategory: myCategories, taskText: listedTasks.textFieldText, categoryName: categoryName)){
+                                                                Image("checkbox_fill").resizable()
+                                                                    .frame(width: 30, height: 30, alignment: .center)
+                                                            }else{
+                                                                Image("checkbox").resizable()
+                                                                    .frame(width: 30, height: 30, alignment: .center)
+                                                            }
+                                                            
                                                         }.padding(.trailing)
                                                             .frame(height: 30)
+                                                    }.onTapGesture {
+                                                        print(listedTasks)
                                                     }
+                                                    
+                                                    
                                                     HStack{
                                                         Text(listedTasks.date.formatted())
                                                             .font(.footnote)
