@@ -25,7 +25,6 @@ struct CategoryView: View {
             .padding(.leading)
             //.border(.black)
             .onTapGesture {
-                print("ya ya")
                 selectedCategory = categoryName
             }
                 

@@ -24,6 +24,7 @@
 		EE764A7129B2723E004E8F15 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A7029B2723E004E8F15 /* BackgroundView.swift */; };
 		EE764A7329B27CB7004E8F15 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE764A7229B27CB7004E8F15 /* NewTaskView.swift */; };
 		EE889DEB29B7A4B70002E239 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE889DEA29B7A4B70002E239 /* TaskDetailView.swift */; };
+		EED2FC3A29B912E900BC226B /* ViewDecider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED2FC3929B912E900BC226B /* ViewDecider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		EE764A7029B2723E004E8F15 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		EE764A7229B27CB7004E8F15 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		EE889DEA29B7A4B70002E239 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		EED2FC3929B912E900BC226B /* ViewDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDecider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		EE764A6D29B26FE0004E8F15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EED2FC3929B912E900BC226B /* ViewDecider.swift */,
 				EE764A6E29B271F2004E8F15 /* EmptyStateView.swift */,
 				EE764A7029B2723E004E8F15 /* BackgroundView.swift */,
 				EE764A7229B27CB7004E8F15 /* NewTaskView.swift */,
@@ -207,6 +210,7 @@
 				EE69A90229B3884F0046AA99 /* ToDoGridView.swift in Sources */,
 				EE764A6F29B271F2004E8F15 /* EmptyStateView.swift in Sources */,
 				EE69A8FE29B370680046AA99 /* CategoryViewModel.swift in Sources */,
+				EED2FC3A29B912E900BC226B /* ViewDecider.swift in Sources */,
 				EE4D531B29B4030E00D5031F /* TaskViewModel.swift in Sources */,
 				EE69A90429B389A00046AA99 /* ToDoList.swift in Sources */,
 				EE764A5D29B26DA6004E8F15 /* ContentView.swift in Sources */,

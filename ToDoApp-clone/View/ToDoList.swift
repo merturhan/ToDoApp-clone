@@ -11,8 +11,11 @@ struct ToDoList: View {
     
     @ObservedObject var myCategories : CategoryViewModel
     @ObservedObject var myTasks : TaskViewModel
-    @State var isDetailViewOn : Bool = false
     
+    @Binding var isToDoListViewOn : Bool
+    @Binding var isEmptyStateView : Bool
+    
+    @State var isDetailViewOn : Bool = false
     @State var isNewTaskView : Bool = false
     @State private var twoColumns = [GridItem(.flexible()), GridItem(.flexible())]
  
@@ -80,10 +83,10 @@ struct ToDoList: View {
         }
     }
     
-    struct ToDoList_Previews: PreviewProvider {
-        static var previews: some View {
-            ToDoList(myCategories: CategoryViewModel(), myTasks: TaskViewModel())
-        }
-    }
+//    struct ToDoList_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ToDoList(myCategories: CategoryViewModel(), myTasks: TaskViewModel())
+//        }
+//    }
     
 }

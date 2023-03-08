@@ -16,7 +16,7 @@ struct ToDoApp_cloneApp: App {
     var body: some Scene {
         
         WindowGroup {
-            myCategories.decider(myCategories: myCategories, myTaskViewModel: myTaskView)
+            ViewDecider(myCategories: myCategories, myTasks: myTaskView)
         }
     }
 }

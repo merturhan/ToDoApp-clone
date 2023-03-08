@@ -9,10 +9,15 @@ import SwiftUI
 
 struct EmptyStateView: View {
     
-    @State var isNewTaskViewOn : Bool = false
     
     @ObservedObject var myCategories : CategoryViewModel
     @ObservedObject var myTasks : TaskViewModel
+    
+    @Binding var isEmptyStateViewOn : Bool
+    @Binding var isToDoListViewOn : Bool
+    
+    @State var isNewTaskViewOn : Bool = false
+    
     
     var body: some View {
         
@@ -56,9 +61,9 @@ struct EmptyStateView: View {
     }
 }
 
-struct EmptyStateView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmptyStateView(myCategories: CategoryViewModel(), myTasks: TaskViewModel())
-    }
-}
+//struct EmptyStateView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EmptyStateView(myCategories: CategoryViewModel(), myTasks: TaskViewModel())
+//    }
+//}
 

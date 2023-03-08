@@ -56,16 +56,16 @@ class CategoryViewModel :  ObservableObject{
     }
     
     
-    @ViewBuilder
-    func decider (myCategories : CategoryViewModel , myTaskViewModel : TaskViewModel) -> some View
-    {
-        if(isToDoList(myCategories: myCategories)){
-            ToDoList(myCategories: myCategories, myTasks: myTaskViewModel)
-        }
-        EmptyStateView(myCategories: myCategories, myTasks: myTaskViewModel)
-    }
+//    @ViewBuilder
+//    func decider (myCategories : CategoryViewModel , myTaskViewModel : TaskViewModel) -> some View
+//    {
+//        if(isToDoList(myCategories: myCategories)){
+//            ToDoList(myCategories: myCategories, myTasks: myTaskViewModel)
+//        }
+//        EmptyStateView(myCategories: myCategories, myTasks: myTaskViewModel)
+//    }
     
-    func isToDoList(myCategories : CategoryViewModel) -> Bool{
+    func isEmptyStateView(myCategories : CategoryViewModel) -> Bool{
         
         var allCounter = 0
         
@@ -73,7 +73,7 @@ class CategoryViewModel :  ObservableObject{
             allCounter += myCategories.categories[i].counter
         }
         
-        if(allCounter > 0){
+        if(allCounter == 0){
             return true
         }
             
