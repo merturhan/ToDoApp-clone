@@ -117,6 +117,7 @@ struct NewTaskView: View {
                 .navigationTitle("New Task")
                 .toolbar{
                     Button {
+                        isNewTaskView.toggle()
                         
                         
                     } label: {

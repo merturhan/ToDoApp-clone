@@ -34,13 +34,13 @@ class CategoryViewModel :  ObservableObject{
     func addTaskToSelectedCategory(selectedCategoryIndex : Int, taskToAdd : TaskModel, categoryName : String){
         
         if(categoryName == "All"){
-            self.categories[selectedCategoryIndex].tasks?.append(taskToAdd)
+            self.categories[selectedCategoryIndex].tasks.append(taskToAdd)
             self.categories[selectedCategoryIndex].counter += 1
         }
         else{
-            self.categories[0].tasks?.append(taskToAdd)
+            self.categories[0].tasks.append(taskToAdd)
             self.categories[0].counter += 1
-            self.categories[selectedCategoryIndex].tasks?.append(taskToAdd)
+            self.categories[selectedCategoryIndex].tasks.append(taskToAdd)
             self.categories[selectedCategoryIndex].counter += 1
         }
         
@@ -62,7 +62,7 @@ class CategoryViewModel :  ObservableObject{
         if(isToDoList(myCategories: myCategories)){
             ToDoList(myCategories: myCategories, myTasks: myTaskViewModel)
         }
-        //EmptyStateView()
+        EmptyStateView(myCategories: myCategories, myTasks: myTaskViewModel)
     }
     
     func isToDoList(myCategories : CategoryViewModel) -> Bool{
@@ -77,7 +77,46 @@ class CategoryViewModel :  ObservableObject{
             return true
         }
             
-        return true
+        return false
+    }
+    
+    
+    func getCategoryIndexByName(categoryName: String) -> (Int){
+        
+        switch categoryName {
+        case "All":
+            return 0
+        case "Cooking":
+            return 1
+        case "Finance":
+            return 2
+        case "Gift":
+            return 3
+        case "Health":
+            return 4
+        case "Home":
+            return 5
+        case "Ideas":
+            return 6
+        case "Music":
+            return 7
+        case "Others":
+            return 8
+        case "Payment":
+            return 9
+        case "Shopping":
+            return 10
+        case "Study":
+            return 11
+        case "Travel":
+            return 12
+        case "Work":
+            return 13
+        default:
+            print("Error")
+        }
+        
+        return -1
     }
     
 }

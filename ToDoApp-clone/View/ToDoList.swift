@@ -11,6 +11,7 @@ struct ToDoList: View {
     
     @ObservedObject var myCategories : CategoryViewModel
     @ObservedObject var myTasks : TaskViewModel
+    @State var isDetailViewOn : Bool = false
     
     @State var isNewTaskView : Bool = false
     @State private var twoColumns = [GridItem(.flexible()), GridItem(.flexible())]
@@ -31,7 +32,7 @@ struct ToDoList: View {
                             viewItem in
                             
 //                            if(viewItem.counter != 0){
-                                ToDoGridView(categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName, counter: viewItem.counter)
+                            ToDoGridView(myCategories: myCategories, myTasks: myTasks, isDetailViewOn: isDetailViewOn, categoryName: viewItem.categoryName, categoryPicName: viewItem.categoryPicName, counter: viewItem.counter)
 //                            }
                             
                         }.padding(.leading)

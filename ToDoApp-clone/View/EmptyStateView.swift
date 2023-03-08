@@ -9,7 +9,10 @@ import SwiftUI
 
 struct EmptyStateView: View {
     
-    @State private var isNewTaskViewOn : Bool = false
+    @State var isNewTaskViewOn : Bool = false
+    
+    @ObservedObject var myCategories : CategoryViewModel
+    @ObservedObject var myTasks : TaskViewModel
     
     var body: some View {
         
@@ -37,6 +40,8 @@ struct EmptyStateView: View {
                                     .font(.title)
                             }.shadow(radius: 25)
                             
+                        }.fullScreenCover(isPresented: $isNewTaskViewOn){
+                            NewTaskView(isNewTaskView: $isNewTaskViewOn, myCategories: myCategories, myTasks: myTasks)
                         }
                         
                          
@@ -53,7 +58,7 @@ struct EmptyStateView: View {
 
 struct EmptyStateView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyStateView()
+        EmptyStateView(myCategories: CategoryViewModel(), myTasks: TaskViewModel())
     }
 }
 
